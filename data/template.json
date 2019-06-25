@@ -1,0 +1,100 @@
+
+{
+  "player": {
+      "startingPosition": String, // String formatted as “x,y”
+                                  // the starting position of the player
+      "imageLocation": String, // the location of the player image, or name of image 
+                               //within the data folder
+      "width": Number, // the width of the player
+      "height": Number, // the height of the player
+      "projectileImageLocation": String, // the location of the projectile image for 
+                                         // the player
+      "projectileDamage": Number, // the amount of damage done by a player’s projectile
+      "health": Number, // the starting health of the player 
+      "keyBindings": [ // a list of keybindings for controlling the player
+        {
+          "keyCode": Number, // the keyCode which triggers an action
+          "action": String, // the action to be triggered - one of “move left”, 
+                            //“move right”, “jump”, “down”, “fire”
+          "sticky": Boolean // should this key stick
+        }
+      ]
+  },
+   "world": {
+      "backgroundColor" : String, //comma separated RGB value for the background color
+      "lazyLoad": Boolean // can the world be lazy loaded
+  },
+  "enemies": [ // the list of all the enemies in the world
+      {
+        "x": Number, // the starting x position of the enemy
+        "y": Number, // the starting x position of the enemy 
+        "image": String, // the location of the enemy image
+        "width": Number, // the width of the enemy
+        "height": Number, // the height of the enemy
+        "health": Number, // the starting health of the enemy
+        "projectileImage": String, // the location of the image for this enemy’s projectiles
+        "projectileDamage": Number, // the amount of damage dealt by this enemies projectile
+        "leftBoundary": Number, // the furthest left x coordinate this enemy can travel
+        "rightBoundary": Number, // the furthest right x coordinate this enemy can travel
+        "allowBounceAttack": Boolean // can this enemy die from being bounced on
+      }
+  ],
+  "textTriggers": [ // Triggers which display text on the screen
+    {
+      "type": String, // The trigger type one of “X”, “Y”, “Coordinate”
+      "x": Number, // the X coordinate of the trigger *OPTIONAL* for Y triggers
+      "y": Number, // the Y coordinate of the trigger *OPTIONAL* for X triggers
+      "imageLocation": String, // the location of the image for the trigger 
+                               // *OPTIONAL* not used for X or Y triggers
+      "exclusive": Boolean, // is this trigger an exclusive subscriber to key presses
+      "text": String // the text to be shown when triggered
+      "width": Number, // the width of the trigger object *OPTIONAL*
+      "height": Number, // the height of the trigger object *OPTIONAL*
+    },
+  ],
+  "gameOverTriggers": [ // Triggers which end the game
+      {
+        "type": String, // The trigger type one of “X”, “Y”, “Coordinate”
+        "x": Number, // the X coordinate of the trigger *OPTIONAL* for Y triggers
+        "y": Number, // the Y coordinate of the trigger *OPTIONAL* for X triggers
+        "width": Number, // the width of the trigger object *OPTIONAL*
+        "height": Number, // the height of the trigger object *OPTIONAL*
+        "imageLocation": String, // the location of the trigger image
+                                 // *OPTIONAL* not used for X or Y triggers
+        "winOnTrigger": Boolean // does the user win the game when this is triggered 
+      }
+     ],
+  "healthModifiers": [ // modifiers which increase the player’s health - can be negative
+    {
+      "x": Number, // the x location of the modifier
+      "y": Number, // the y location of the modifier
+      "height": Number, // the height of the modifier object
+      "width": Number, // the width of the modifier object
+      "imageLocation": String, // the location of the image for the modifier
+      "value": Number // the effect applied to the player’s health
+    }
+   ],
+  "scoreModifiers": [ // modifiers which increase the player’s score
+    {
+      "x": Number, // the x location of the modifier
+      "y": Number, // the y location of the modifier
+      "height": Number, // the height of the modifier object
+      "width": Number, // the width of the modifier object
+      "imageLocation": String, // the location of the image for the modifier
+      "value": Number // the effect applied to the player’s score
+    }
+   ],
+  "tiles": [ // a list of static, collidable tiles
+      {
+       "imageLocation": String, // the location of the image for a tile
+        "height": Number, // the height of the tile
+        "width" : Number, // the width of the tile
+        "locations": [
+          {
+           "x": Number, // the x location of a tile
+           "y": Number // the y location of a tile 
+          
+        ]
+      }
+  ]
+}
